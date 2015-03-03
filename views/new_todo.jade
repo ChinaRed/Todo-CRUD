@@ -7,8 +7,13 @@ head
   link(rel="stylesheet", href="/styles/styles.css")
 body
   #content-container
-    h1 Todo List
+    h1 New Todo Item
 
-    section.todo_list
-      div
-        li.item
+    section.new_todo_form
+      form( action="/new_todo", method="POST")
+        fieldset
+          input( type="text", name="title", placeholder="Title")
+          input( type="text", name="description", placeholder="Description")
+          button Send
+
+        
