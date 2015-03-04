@@ -1,16 +1,25 @@
-doctype
-html(lang="en")
-head
-  meta(charset="UTF-8")
-  title Todo List
+extends ./layout
 
-  link(rel="stylesheet", href="/styles/styles.css")
-body
-  each todo in todos
-    ul
-      li!= todo.title
+block title
 
+block content 
+  h2 All To-Do's
+  a(href="/new_todo")
+    button New To-Do
+  ul
+    each todo in todos
+      li.delete
+        a(href="/todos/#{todo._id}")!= todo.title
+      li!= todo.description
+      form(action="/todos/#{todo._id}?_method=DELETE", method="POST")
+        button x
+      li.checkbox
+        input(type="checkbox", data-todo-id="#{todo._id}")
           
+  
+
+
+  
 
   
 

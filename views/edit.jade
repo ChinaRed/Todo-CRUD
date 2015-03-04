@@ -1,14 +1,7 @@
-doctype
-html(lang="en")
-head
-  meta(charset="UTF-8")
-  title Todo List
-  
-  link(rel="stylesheet", href="/styles/styles.css")
-body
-  #content-container
-    h1 Todo List
+extends ./layout
 
-    section.todo_list
-      div
-        li.item
+block title
+
+block content
+  h2!=todo.title
+  p!= todo.description

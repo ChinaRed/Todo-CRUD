@@ -1,19 +1,16 @@
-doctype
-html(lang="en")
-head
-  meta(charset="UTF-8")
-  title Todo List
-  
-  link(rel="stylesheet", href="/styles/styles.css")
-body
-  #content-container
-    h1 New Todo Item
+extends ./layout
 
-    section.new_todo_form
-      form( action="/new_todo", method="POST")
-        fieldset
-          input( type="text", name="title", placeholder="Title")
-          input( type="text", name="description", placeholder="Description")
-          button Send
+block title
+
+block content
+  h2 New To-Do Item
+  a(href="/")
+    button Return to List
+  section.new_todo_form
+    form( action="/new_todo", method="POST")
+      fieldset
+        input( type="text", name="title", placeholder="Title")
+        input( type="text", name="description", placeholder="Description")
+        button Send
 
         

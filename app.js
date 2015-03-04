@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
 
 var mongoose = require('mongoose');
 mongoose.connect ('mongodb://localhost/list');
@@ -17,6 +18,7 @@ var toDoSchema = new Schema({
 var Todo = mongoose.model('Todo', toDoSchema);
 
 app.use(express.static(__dirname+'/public'));
+app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.set('view engine','jade');
 
@@ -28,18 +30,24 @@ app.get('/', function (req, res){
       todos : todos 
     });
   });
-  // res.render('index', { title : title, description : description });
-
 });
 
+app.delete('/todos/:id', function (req, res){
+  // var todo_id = req.params.id;
+  Todo.remove({ _id : req.params.id }, function (err){
+    if (err) throw err;
+    res.redirect('/');
+  });
+  console.log(Todo);
+});
+
+// renders the New Todo page
 app.get('/new_todo', function(req, res){
   res.render('new_todo');
 });
 
-app.get('/edit', function(req, res){
-  res.render('edit');
-});
 
+// saves input to DB from New Todo page
 app.post('/new_todo', function(req, res){
   console.log(req.body);
   var newTodo = new Todo({
@@ -52,7 +60,36 @@ app.post('/new_todo', function(req, res){
     if (err) throw err;
     console.log("saved!");
   });
+  res.redirect('/');
 });
+
+// renders the Read task page by id set by url param
+app.get('/todos/:id', function (req, res){
+  Todo.findById(req.params.id, function (err, todo){
+    if (err) throw err;
+    res.render('read', {
+      todo : todo
+    });
+  });
+  // fs.readFile( Todos + taskItem,function (err, task){
+  //   if (err) throw err;
+  //   res.render('edit', { 
+  //     title : title, 
+  //     description : description,
+  //     is_done : boolean,
+  //     created_at : Date()
+  //   });
+  // });
+    // res.render('edit', {
+    //   title : title,
+    //   description : description,
+    //   is_done : boolean,
+    //   created_at : Date()
+    // });
+ 
+});
+
+
 
 var server = app.listen(3000, function () {
 
