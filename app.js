@@ -9,10 +9,10 @@ var Schema = mongoose.Schema;
 
 //schema for data 
 var toDoSchema = new Schema({
-  title : String,
+  title : {type : String, required : true},
   description: String,
-  is_done : Boolean,
-  created_at : Date
+  is_done : { type : Boolean, default : false},
+  created_at : { type : Date, default : Date.now}
 });
 
 var Todo = mongoose.model('Todo', toDoSchema);
@@ -71,24 +71,35 @@ app.get('/todos/:id', function (req, res){
       todo : todo
     });
   });
-  // fs.readFile( Todos + taskItem,function (err, task){
-  //   if (err) throw err;
-  //   res.render('edit', { 
-  //     title : title, 
-  //     description : description,
-  //     is_done : boolean,
-  //     created_at : Date()
-  //   });
-  // });
-    // res.render('edit', {
-    //   title : title,
-    //   description : description,
-    //   is_done : boolean,
-    //   created_at : Date()
-    // });
- 
 });
 
+// edit and update the task on task list page
+app.put('/todos/:id', function (req, res){
+  Todo.update({ _id : req.params.id },{
+      title : req.body.title,
+      description : req.body.description
+    }, function (err, todo){
+      if (err) throw err;
+      console.log("UPDATED!");
+      res.redirect('/');
+  });
+});
+
+app.put('/todos/:id/complete', function (req, res){
+  Todo.update({ _id : req.params.id},{
+    is_done : true
+  }, function (err){
+    if (err) throw err;
+  });
+});
+
+app.put('/todos/:id/uncomplete', function (req, res){
+  Todo.update({ _id : req.params.id},{
+    is_done : false
+  }, function (err){
+    if (err) throw err;
+  });
+});
 
 
 var server = app.listen(3000, function () {

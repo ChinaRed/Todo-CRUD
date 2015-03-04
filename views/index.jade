@@ -8,14 +8,15 @@ block content
     button New To-Do
   ul
     each todo in todos
-      li.delete
+      li.tasks
         a(href="/todos/#{todo._id}")!= todo.title
       li!= todo.description
+      //- delete todo item
       form(action="/todos/#{todo._id}?_method=DELETE", method="POST")
         button x
       li.checkbox
         input(type="checkbox", data-todo-id="#{todo._id}")
-          
+
   
 
 
