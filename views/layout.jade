@@ -3,6 +3,7 @@ mixin listitem(todo, completed)
     .taskItem
       input(type="checkbox", data-todo-id="#{todo._id}", data-checked="#{todo.is_done}", checked=completed)
       a(href="/todos/#{todo._id}")!= todo.title
+      p.created_at!= todo.created_at
       form(action="/todos/#{todo._id}?_method=DELETE", method="POST")
         button.pure-button &times
       p.description!= todo.description
@@ -28,7 +29,6 @@ html(lang="en")
   body
     .container
       .content
-        h1 CRUD To-Do List
-        
-        block content
+                
+       block content
 
