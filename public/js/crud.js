@@ -23,7 +23,8 @@ $("li.todo input[type=checkbox]").change(function(){
         });
         console.log(this);
     }
-
 });
+
+
 
 });

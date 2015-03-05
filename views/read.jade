@@ -3,11 +3,12 @@ extends ./layout
 block title
 
 block content
-  a(href="/todos/edit")
-    button Edit To-Do
-  div
+  //- a(href="/todos/edit")
+  //- button Edit To-Do
+  .todo_info
     h2!=todo.title
-    p!= todo.created_at
+    p.created_at!= todo.created_at
+    button Edit
     p!= todo.description
   div
     form(action="/todos/#{todo._id}?_method=PUT",method="POST")
