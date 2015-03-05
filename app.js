@@ -86,18 +86,20 @@ app.put('/todos/:id', function (req, res){
 });
 
 app.put('/todos/:id/complete', function (req, res){
-  Todo.update({ _id : req.params.id},{
+  Todo.findOneAndUpdate({ _id : req.params.id}, { $set: {
     is_done : true
-  }, function (err){
+  }}, function (err){
     if (err) throw err;
+    res.send('Okay');
   });
 });
 
 app.put('/todos/:id/uncomplete', function (req, res){
-  Todo.update({ _id : req.params.id},{
+  Todo.findOneAndUpdate({ _id : req.params.id}, { $set: {
     is_done : false
-  }, function (err){
+  }}, function (err){
     if (err) throw err;
+    res.send('Okay');
   });
 });
 

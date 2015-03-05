@@ -7,6 +7,7 @@ block content
     button Edit To-Do
   div
     h2!=todo.title
+    p!= todo.created_at
     p!= todo.description
   div
     form(action="/todos/#{todo._id}?_method=PUT",method="POST")

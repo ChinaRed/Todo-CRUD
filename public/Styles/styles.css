@@ -4,3 +4,31 @@
 body{
   font-family: 'Roboto Condensed', sans-serif;
 }
+
+.container{
+  background-color: pink;
+}
+
+div.taskItem{
+  display: inline-block;
+}
+ul{
+  display: inline;
+  background-color: salmon;
+}
+
+li{
+  background-color: salmon;
+}
+
+form{
+  display: inline-block;
+}
+
+a{
+  text-decoration: none;
+}
+
+li.complete a{
+  text-decoration: line-through;
+}

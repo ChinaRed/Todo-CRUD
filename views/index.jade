@@ -8,20 +8,19 @@ block content
     button New To-Do
   ul
     each todo in todos
-      li.tasks
-        a(href="/todos/#{todo._id}")!= todo.title
-      li!= todo.description
-      //- delete todo item
+      if todo.is_done === true
+        li.todo.complete
+          +listitem(todo, "checked")
+      else 
+        li.todo
+          +listitem(todo)
+
+
+mixin listitem(todo, completed)
+    .taskItem
+      input(type="checkbox", data-todo-id="#{todo._id}", data-checked="#{todo.is_done}", checked=completed)
+      a(href="/todos/#{todo._id}")!= todo.title
       form(action="/todos/#{todo._id}?_method=DELETE", method="POST")
-        button x
-      li.checkbox
-        input(type="checkbox", data-todo-id="#{todo._id}")
+        button.delete x
+    li.description!= todo.description
 
-  
-
-
-  
-
-  
-
-  
