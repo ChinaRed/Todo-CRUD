@@ -1,7 +1,17 @@
 doctype
+mixin listitem(todo, completed)
+    .taskItem
+      input(type="checkbox", data-todo-id="#{todo._id}", data-checked="#{todo.is_done}", checked=completed)
+      a(href="/todos/#{todo._id}")!= todo.title
+      form(action="/todos/#{todo._id}?_method=DELETE", method="POST")
+        button.delete x
+      p.description!= todo.description
+
+
 html(lang="en")
   head
     meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
     block title 
     link(rel="stylesheet", href="/styles/partials/reset.css")
     link(rel="stylesheet", href="/styles/styles.css")

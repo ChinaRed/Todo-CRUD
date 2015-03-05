@@ -16,11 +16,5 @@ block content
           +listitem(todo)
 
 
-mixin listitem(todo, completed)
-    .taskItem
-      input(type="checkbox", data-todo-id="#{todo._id}", data-checked="#{todo.is_done}", checked=completed)
-      a(href="/todos/#{todo._id}")!= todo.title
-      form(action="/todos/#{todo._id}?_method=DELETE", method="POST")
-        button.delete x
-    li.description!= todo.description
+
 

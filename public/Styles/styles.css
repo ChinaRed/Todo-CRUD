@@ -1,71 +1,82 @@
 @import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,400,300,700);
+/* Eric Meyer's Reset CSS v2.0 - http://cssreset.com */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  margin: 0;
+  padding: 0; }
 
-html{
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.clearfix:after {
+  content: " ";
+  /* Older browser do not support empty content */
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both; }
+
+html {
   font-family: 'Roboto Condensed', sans-serif;
-  font-size: 16px;
-}
+  font-size: 16px; }
 
-body{
-}
+h1 {
+  font-size: 2em; }
 
-h1{
-  font-size: 2em;
-}
+h2 {
+  font-size: 1.5em; }
 
-h2{
-  font-size: 1.5em;
-}
+.container {
+  background-color: #C7BA99;
+  padding: 25px; }
 
-.container{
-  background-color: grey;
-  padding: 25px;
-}
-
-.content{
-  background-color: pink;
+.content {
+  background-color: #D4C9AD;
   width: 960px;
-  margin: auto;
-}
+  margin: auto; }
 
-div.taskItem{
+li {
+  background-color: #F1ECDF; }
+
+div.taskItem {
   max-width: 600px;
-}
-ul{
-  display: inline;
-  background-color: salmon;
-}
-
-li{
-  background-color: salmon;
-}
+  border-top: solid 1px #D4C9AD;
+  padding: 20px; }
+  div.taskItem input {
+    float: left; }
 
 /*checkbox*/
-input{
-  float: left;
-}
-
 /*title*/
-a{
+a {
   text-decoration: none;
-  margin-left: 5%;
-}
-
-li.description{
-
-}
+  margin-left: 5%; }
 
 /*delete button*/
-form{
-  display: inline-block;
-}
+form {
+  display: inline-block; }
 
-li.complete a{
-  text-decoration: line-through;
-}
+li.complete a {
+  text-decoration: line-through; }
 
-form{
-  float: right;
-}
-
-
+form {
+  float: right; }

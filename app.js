@@ -2,6 +2,8 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
+var livereload = require('connect-livereload');
+var livereloadport = 35729;
 
 var mongoose = require('mongoose');
 mongoose.connect ('mongodb://localhost/list');
@@ -17,11 +19,13 @@ var toDoSchema = new Schema({
 
 var Todo = mongoose.model('Todo', toDoSchema);
 
+app.set('view engine','jade');
 app.use(express.static(__dirname+'/public'));
 app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({extended: false}));
-app.set('view engine','jade');
+app.use(livereload({port: livereloadport}));
 
+  
 app.get('/', function (req, res){
   Todo.find(function (err, todos){
     console.log('todo list: ' + todos);
@@ -104,10 +108,11 @@ app.put('/todos/:id/uncomplete', function (req, res){
 });
 
 
-var server = app.listen(3000, function () {
+var server = app.listen( (process.env.PORT || 3000), function () {
 
   var host = server.address().address;
   var port = server.address().port;
+
 
   console.log('Example app listening at http://%s:%s', host, port);
 
