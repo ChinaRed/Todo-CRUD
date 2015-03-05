@@ -25,6 +25,9 @@ $("li.todo input[type=checkbox]").change(function(){
     }
 });
 
-
+$("button.edit").click(function(){
+    $(".todo_info").toggle(".hidden");
+    $(".edit_form").toggle(".hidden");
+});
 
 });
