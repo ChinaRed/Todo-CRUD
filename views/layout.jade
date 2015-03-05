@@ -3,13 +3,14 @@ html(lang="en")
   head
     meta(charset="UTF-8")
     block title 
-    link(rel="stylesheet", href="/styles/styles.css")
     link(rel="stylesheet", href="/styles/partials/reset.css")
+    link(rel="stylesheet", href="/styles/styles.css")
     script(type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js")
     script(src="/js/crud.js")
   body
-    div.container
-      h1 CRUD To-Do List
-      
-      block content
+    .container
+      .content
+        h1 CRUD To-Do List
+        
+        block content
 
