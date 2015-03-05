@@ -3,9 +3,8 @@ extends ./layout
 block title
 
 block content 
-  h2 All To-Do's
-  a(href="/new_todo")
-    button New To-Do
+  .new_todo.clearfix
+    +newitem(todo)
   ul
     each todo in todos
       if todo.is_done === true

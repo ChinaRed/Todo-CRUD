@@ -4,8 +4,16 @@ mixin listitem(todo, completed)
       input(type="checkbox", data-todo-id="#{todo._id}", data-checked="#{todo.is_done}", checked=completed)
       a(href="/todos/#{todo._id}")!= todo.title
       form(action="/todos/#{todo._id}?_method=DELETE", method="POST")
-        button.delete x
+        button.pure-button &times
       p.description!= todo.description
+
+mixin newitem(todo)
+    .new_todo_form
+      form( action="/new_todo", method="POST")
+        fieldset
+          input( class="title" type="text", name="title", placeholder="Title")
+          input( class="description" type="text", name="description", placeholder="Description")
+          button ADD
 
 
 html(lang="en")

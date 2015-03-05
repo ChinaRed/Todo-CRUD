@@ -3,9 +3,11 @@
 @import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,400,300,700);
 
+
 html{
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 16px;
+  color: $black;
 }
 
 body{
@@ -26,8 +28,20 @@ h2{
 
 .content{
   background-color: $beige;
-  width: 960px;
+  width: 90%;
   margin: auto;
+  border-top: 10px solid $orange;
+
+    h1{
+      text-align: center;
+      font-weight: 700;
+      margin: 25px 0 5px;
+      font-size: 3em;
+    }
+
+    a{
+      font-size: 2em;
+    }
 }
 
 li{
@@ -35,41 +49,89 @@ li{
 
 }
 
+div.new_todo_form{
+  // background-color: green;
+  height: 55px;
+
+    form{
+      padding: 15px;
+    }
+
+    input{
+      height: 30px;
+      margin-right: 25px;
+
+      &.description{
+        width: 60%;
+      }
+
+      &.title{
+        width: 20%;
+      }
+    }
+
+}
+
+
 div.taskItem{
-  max-width: 600px;
-  border-top: solid 1px $beige;
+  width: 90%;
+  border-top: dotted 1.5px $beige;
   padding: 20px;
+  // background-color: salmon;
+  margin: auto;
+   /*checkbox*/
+    
+    input{
+      float: left;
+      display: none;
+      display:inline-block;
+      width:19px;
+      height:19px;
+      margin:-1px 4px 0 0;
+      vertical-align:middle;
+      background:url(check_radio_sheet.png) left top no-repeat;
+      cursor:pointer;
+    }   
 
-   input{
-  float: left;
-  }   
+    /*title*/
+    a{
+      text-decoration: none;
+      margin-left: 5%;
+      color: $dark;
+      // background-color: pink;
+    }
+
+    p{
+      margin-left: 5%;
+      font-size: 1.5em;
+      // background-color: orange;
+      margin-top: 5px;
+    }
+
+    /*delete button*/
+    form{
+      display: inline-block;
+      float: right;
+      // padding:5px 15px; 
+      // background:#ccc; 
+      // border:0 none
+
+    }
 }
 
 
-/*checkbox*/
 
 
-/*title*/
-a{
-  text-decoration: none;
-  margin-left: 5%;
-}
 
-li.description{
 
-}
-
-/*delete button*/
-form{
-  display: inline-block;
-}
 
 li.complete a{
   text-decoration: line-through;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 2em;
+  color: red;
 }
 
-form{
-  float: right;
-}
 
 
