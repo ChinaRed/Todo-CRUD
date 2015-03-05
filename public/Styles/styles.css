@@ -67,19 +67,27 @@ h2 {
 li {
   background-color: #F1ECDF; }
 
+.new_todo {
+  margin: 20px; }
+
 div.new_todo_form {
   height: 55px; }
+  div.new_todo_form fieldset {
+    width: 100%;
+    margin: auto; }
+    div.new_todo_form fieldset button {
+      margin: 0 1%; }
   div.new_todo_form form {
     padding: 15px; }
   div.new_todo_form input {
-    height: 30px;
-    margin-right: 25px; }
+    height: 30px; }
     div.new_todo_form input.description {
       width: 60%; }
     div.new_todo_form input.title {
-      width: 20%; }
+      width: 25%;
+      margin: 0 1%; }
 
-div.taskItem {
+li.todo {
   width: 90%;
   border-top: dotted 1.5px #D4C9AD;
   padding: 20px;
@@ -87,25 +95,19 @@ div.taskItem {
   /*checkbox*/
   /*title*/
   /*delete button*/ }
-  div.taskItem input {
-    float: left;
-    display: none;
-    display: inline-block;
-    width: 19px;
-    height: 19px;
-    margin: -1px 4px 0 0;
-    vertical-align: middle;
-    background: url(check_radio_sheet.png) left top no-repeat;
-    cursor: pointer; }
-  div.taskItem a {
+  li.todo a {
     text-decoration: none;
     margin-left: 5%;
-    color: #00080F; }
-  div.taskItem p {
-    margin-left: 5%;
+    color: #412B13; }
+  li.todo p {
+    width: 90%;
+    margin-left: 9%;
     font-size: 1.5em;
     margin-top: 5px; }
-  div.taskItem form {
+    li.todo p img {
+      width: 90%;
+      height: auto; }
+  li.todo form {
     display: inline-block;
     float: right; }
 
@@ -114,4 +116,4 @@ li.complete a {
   font-weight: 300;
   font-style: italic;
   font-size: 2em;
-  color: red; }
+  color: #445555; }
